@@ -1,16 +1,18 @@
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
 
 SECRET_KEY = 'django-insecure-mdfh5!579bwv%75^zb(7z02n)8*4!$g&mgci4o9zb2me#vkw15'
 
 
-DEBUG = True
+DEBUG = bool(os.environ.get("DEBUG"))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(',')
 
 
 
@@ -43,6 +45,19 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+SITE_ID = 1
+
+CORS_ORIGIN_WHITELIST = [
+
+]
+
+CSRS_TRUSTED_ORIGINS = [
+    
+]
+CORS_ALLOWED_ORIGINS= [
+
+]
+
 ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
@@ -61,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.app'
 
 
 
