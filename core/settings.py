@@ -7,8 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 load_dotenv()
 
-SECRET_KEY = 'django-insecure-mdfh5!579bwv%75^zb(7z02n)8*4!$g&mgci4o9zb2me#vkw15'
-
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = bool(os.environ.get("DEBUG"))
 
@@ -43,7 +42,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 SITE_ID = 1
 
@@ -54,6 +52,7 @@ CORS_ORIGIN_WHITELIST = [
 CSRS_TRUSTED_ORIGINS = [
     
 ]
+
 CORS_ALLOWED_ORIGINS= [
 
 ]
@@ -89,6 +88,18 @@ DATABASES = {
 
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ["DBNAME"],
+#         'USER': os.environ["DBUSER"],
+#         'PASSWORD': os.environ["DBPASSWORD"],
+#         'HOST': os.environ["DBHOST"],
+#         'PORT': os.environ["DBPORT"],
+#     }
+# }
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -117,10 +128,11 @@ USE_I18N = True
 USE_TZ = True
 
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = 'static/'
-
+STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
