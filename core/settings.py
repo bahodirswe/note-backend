@@ -46,19 +46,27 @@ MIDDLEWARE = [
 SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = [
-    "https://notes-backend-coral.vercel.app",
-    "https://notes-frontend-rose.vercel.app"
+    "https://note-backend-nu.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://notes-backend-coral.vercel.app"
+    "https://note-backend-nu.vercel.app"
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://notes-backend-coral.vercel.app",
-    "https://notes-frontend-rose.vercel.app"
+    "https://note-backend-nu.vercel.app"
 ]
 
+SESSION_COOKIE_DOMAIN = "https://note-backend-nu.vercel.app"
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+
+SECURE_HSTS_SECONDS = 3600
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
 
 ROOT_URLCONF = "core.urls"
 
