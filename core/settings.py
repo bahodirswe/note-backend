@@ -47,7 +47,7 @@ SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = [
     "https://note-backend-nu.vercel.app",
-    "note-frontend-vert.vercel.app"
+    "https://note-frontend-vert.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -56,7 +56,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CORS_ALLOWED_ORIGINS = [
     "https://note-backend-nu.vercel.app",
-    "note-frontend-vert.vercel.app"
+    "https://note-frontend-vert.vercel.app"
 
 ]
 
